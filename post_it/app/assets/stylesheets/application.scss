@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ @import "bootstrap";
+
+ .container {
+  margin-left: 135px
+}
+
+.navbar .nav > li > a.brand {
+  padding-left: 0px;
+  color: #f95206;
+}
+
+.quiet {
+  color: #ababab;
+}
+
+div.nav_item {
+  margin-left: 25px;
+  float: left;
+}
+
+.label, .badge  {
+  a, a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+div.comment_votes {
+  padding: 10px;
+}
+
+.body {
+  font: Times;
+}
+
+.body-background {
+  background-color: #075557;
+}
+
+.well {
+  background-color: #5ec2db;
+}
+.tron-colors {
+  color: #f95206;
+  color: #500c0b;
+  color: #0a1c26;
+  color: #012437;
+  color: #5ec2db;
+  color: #940000;
+  color: #fff300;
+  color: #404fa0;
+  color: #1bfbfb;
+  color: #fbf9ed;
+  color: #075557;
+
+}
+
+.btn-geckoboard {
+  background: #7EB348;
+  background-image: none;
+  border:none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-decoration: none ! important;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+.btn-geckoboard:hover {
+  background: #333;
+  color: #fff;
+}
+
+.btn-basecamp {
+  background-image: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0px 1px 0px #ddd;
+  -moz-box-shadow: 0px 1px 0px #ddd;
+  box-shadow: 0px 1px 0px #ddd;
+}
+.btn-basecamp:hover {
+  background: #fff;
+}

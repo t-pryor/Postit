@@ -1,0 +1,30 @@
+1. what if you screw up migration, then do a bunch of work
+--called t.string username instead of name for create_categories
+
+
+2.what to focus on in readings
+
+3. delete vs. destroy?
+
+4-do we need to use pry?
+
+
+best tool for debugging
+
+-learn git from command line
+-don't rely on rubymine functions
+
+-understanding forms-one of key parts of rails
+
+-Usual app
+--ERD modeled after mockups (controller-views layer)
+
+-should used to get using resources
+if you have CRUD endpoints for a 'resources',
+check out routes for Redmine app
+
+resources :posts [except destroy] check out around 20 min-know this by heart
+
+always use destroy
+
+

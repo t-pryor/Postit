@@ -1,0 +1,16 @@
+
+<!--don't want to assume post, comment etc
+
+#obj not automatically passed through like instance var
+#need to pass it in-->
+
+<% if obj.errors.any? %>
+    <div class = 'alert alert-error'>
+      <h5>Please fix the following errors:</h5>
+      <ul>
+        <% obj.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

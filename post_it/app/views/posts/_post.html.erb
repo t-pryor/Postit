@@ -1,0 +1,30 @@
+<div class='row'>
+<% if logged_in? %>
+        <div class='span0 well text-center'>
+            <%= link_to(vote_post_path(post, :vote => true), :method =>'post', :remote => true) do %>
+                <i class='icon-arrow-up'></i>
+            <% end %>
+            <br/>
+            <span id='post_<%= post.slug %>_votes'><%= pluralize(post.total_votes,'vote') %> </span>
+            <br/>
+            <%= link_to(vote_post_path(post, :vote => false), :method =>'post', :remote => true) do %>
+                <i class='icon-arrow-down'></i>
+            <% end %>
+        </div>
+<% end %>
+
+    <div class='span8 well'>
+        <!--see Mod-1-5-resources.m4v 20:30 to 24:00-->
+        <%= render post.categories %>
+
+        <h4><%= link_to post.title, fix_url(post.url) %></h4>
+        <p><%= post.description %></p>
+        <p>
+          <span class='quiet'>posted by</span> <%= link_to post.user.username, user_path(post.user) %>
+          <small>at <%= display_datetime(post.created_at) %></small>
+        </p>
+        <small>
+          <%= link_to pluralize(post.comments.size, 'comment'), post_path(post) %>
+        </small>
+    </div>  <!--end div class span8-->
+</div> <!--end div class row-->

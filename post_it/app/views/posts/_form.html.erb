@@ -1,0 +1,36 @@
+
+<%= render '/shared/errors', obj: @post %>
+
+  <%= form_for(@post) do |f| %>
+
+      <div class='control-group'>
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true %>
+    </div>
+
+    <div class='control-group'>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
+
+    <div class='control-group'>
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 5 %>
+    </div>
+
+    <!-- http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_check_boxes-->
+    <div class='control-group'>
+        <%= f.label 'Categories' %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+        <%= b.label(class: 'checkbox inline') {b.check_box(class: 'checkbox') + b.text} %>
+      <% end %>
+    </div>
+
+    <p>
+      <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn-geckoboard')%> &nbsp &nbsp
+
+      <%= link_to "Cancel", root_path %>
+    </p>
+
+<% end %>
+
