@@ -1,0 +1,15 @@
+<%= render 'shared/content_title', title: 'Please enter your PIN' %>
+
+You will receive a text message with a pin number.
+Enter the pin number to unlock your account.
+
+<div class="well">
+  <%= form_tag '/pin' do %>
+    <div class="control-group">
+      <%= label_tag(:pin, 'PIN Number') %>
+        <%= text_field_tag(:pin) %>
+    </div>
+    <%= submit_tag('Unlock your account', :class => 'btn btn-postit-forms') %>
+  <% end %>
+</div>
+

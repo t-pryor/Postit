@@ -1,5 +1,4 @@
 class Category < ActiveRecord::Base
-
   include Sluggable
 
   has_many :post_categories

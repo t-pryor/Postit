@@ -12,15 +12,23 @@
  *= require_tree .
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
- .container {
+.container {
   margin-left: 135px
 }
 
 .navbar .nav > li > a.brand {
   padding-left: 0px;
+  font-family: 'Rum Raisin', sans-serif;
+  font-size: 3em;
   color: #f95206;
+  transition: all 0.2s ease-in-out 0s;
+  -webkit-transition: all 0.1s ease-in-out 0s;
+}
+
+.navbar .nav > li > a.brand:hover {
+  color: #5ec2db;
 }
 
 .quiet {
@@ -43,58 +51,99 @@ div.comment_votes {
   padding: 10px;
 }
 
-.body {
-  font: Times;
-}
-
 .body-background {
   background-color: #075557;
 }
 
 .well {
-  background-color: #5ec2db;
-}
-.tron-colors {
-  color: #f95206;
-  color: #500c0b;
-  color: #0a1c26;
-  color: #012437;
-  color: #5ec2db;
-  color: #940000;
-  color: #fff300;
-  color: #404fa0;
-  color: #1bfbfb;
-  color: #fbf9ed;
-  color: #075557;
-
+  background-color: #e4f2fa;
+  border-color: #075557;
 }
 
-.btn-geckoboard {
-  background: #7EB348;
+.btn-postit-nav {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #1089b3;
   background-image: none;
   border:none;
   color: #fff;
   letter-spacing: 1px;
-  font-weight: 600;
   text-decoration: none ! important;
   text-shadow: none;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out 0s;
   -webkit-transition: all 0.3s ease-in-out 0s;
 }
-.btn-geckoboard:hover {
+
+.btn-postit-forms {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f95206;
+  background-image: none;
+  border:none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 0.8em;
+  text-decoration: none ! important;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-postit-forms:hover {
   background: #333;
   color: #fff;
 }
 
-.btn-basecamp {
-  background-image: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 0px 1px 0px #ddd;
-  -moz-box-shadow: 0px 1px 0px #ddd;
-  box-shadow: 0px 1px 0px #ddd;
+.logo {
+  font-family: 'Rum Raisin', sans-serif;
+  font-size: 3.5em;
+  color: #f95206;
 }
-.btn-basecamp:hover {
-  background: #fff;
+
+.page-title {
+  letter-spacing: 0.5px;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #075557;
+}
+
+.icon-arrow-up {
+  color: #075557;
+}
+
+.icon-arrow-down {
+  color: #075557;
+}
+
+.post-text {
+  color: #f94800;
+}
+
+.label {
+  background-color: #1089b3;
+  font-weight: normal;
+}
+
+body,
+input,
+button,
+select,
+textarea,
+.navbar-search .search-query {
+  font-family: "PT Sans";
+}
+
+.quiet {
+  color: #075557;
+}
+
+.alert-success {
+  background-color: #5ec2db;
+  color: #fff;
+}
+
+.alert-error {
+  background-color: #940000;
+  color: #fff ;
 }

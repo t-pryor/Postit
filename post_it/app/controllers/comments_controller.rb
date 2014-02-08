@@ -3,15 +3,6 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find_by(:slug => params[:post_id] )
-
-
-=begin
-    @comment = @post.comments.build(params.require(:comment).permit(:body))
-    @comment.user = current_user
-=end
-
-    #condensed version of:
-
     @comment = Comment.new(params.require(:comment).permit(:body))
     @comment.post = @post
     @comment.user = current_user
@@ -24,13 +15,11 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def vote
    @comment = Comment.find(params[:id])
    @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
 
    respond_to do |format|
-
      format.html do
        if @vote.valid?
          flash[:notice] = 'Your vote was counted.'

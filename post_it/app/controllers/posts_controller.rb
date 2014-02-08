@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-
-  before_action :set_post, only: [:show, :edit, :update, :vote]
-  before_action :require_user, except: [:show, :index]
+  before_action :set_post, :only => [:show, :edit, :update, :vote]
+  before_action :require_user, :except => [:show, :index]
+  before_action :require_creator, :only => [:edit, :update]
 
   def index
     @posts = Post.all.sort_by{|x| x.total_votes}.reverse
@@ -15,7 +15,6 @@ class PostsController < ApplicationController
         render :xml => @posts.to_xml(:except => 'id')
       end
     end
-
   end
 
   def show
@@ -30,10 +29,7 @@ class PostsController < ApplicationController
         render :xml => @post.to_xml(:except => ['id'])
       end
     end
-
-
   end
-
 
   def new
     @post = Post.new
@@ -41,23 +37,20 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user = current_user
+    @post.creator = current_user
 
     if @post.save
-      flash[:notice] = "Your post was created"
+      flash[:notice] = 'Your post was created'
       redirect_to posts_path
     else
       render :new
     end
-
   end
 
-
-  def edit; end
-
+  def edit;
+  end
 
   def update
-
     if @post.update(post_params)
       flash[:notice] = 'The post was updated'
       redirect_to post_url(@post.id)
@@ -67,7 +60,7 @@ class PostsController < ApplicationController
   end
 
   def vote
-    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    @vote = Vote.create(:voteable => @post, :creator => current_user, :vote => params[:vote])
 
     respond_to do |format|
       format.html do
@@ -80,16 +73,19 @@ class PostsController < ApplicationController
       end
       format.js
     end
-
   end
 
   private
     def post_params
-      params.require(:post).permit(:title, :url, :description, :category_ids)
+      params.require(:post).permit(:title, :url, :description, :category_ids => [])
     end
 
     def set_post
       @post = Post.find_by(:slug => params[:id])
+    end
+
+    def require_creator
+      access_denied unless logged_in? && (current_user.admin? || current_user == @post.creator)
     end
 end
 

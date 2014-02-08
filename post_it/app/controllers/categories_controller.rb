@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :require_user, only: [:new, :create]
+  before_action :require_admin, only: [:new, :create]
 
   def index
     @categories = Category.all
@@ -12,9 +13,7 @@ class CategoriesController < ApplicationController
         render :xml => @categories.to_xml(:only => 'name')
       end
     end
-
   end
-
 
   def new
     @category = Category.new
@@ -24,10 +23,10 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      flash[:notice] = "Your category was created"
+      flash[:notice] = 'Your category was created'
       redirect_to root_url
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -35,11 +34,8 @@ class CategoriesController < ApplicationController
     @category = Category.find_by(:slug => params[:id])
   end
 
-
   private
-
   def category_params
     params.require(:category).permit(:name)
   end
-
 end
